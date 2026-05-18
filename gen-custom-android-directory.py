@@ -2,7 +2,7 @@
 # -*- coding: utf-8 -*-
 # vim: ai ts=4 sts=4 et sw=4 nu
 
-""" Generate a custom build of Kiwix for Android working with a single content
+""" Generate a branded build of Kiwix for Android working with a single content
 
     The generated App either embed the ZIM file inside (creating large APKs)
     or is prepared to make use of a Play Store companion file.
@@ -64,12 +64,12 @@ def generate_manifest(dest_dir):
 
 def parse_args():
     parser = argparse.ArgumentParser(description="""
-This script take a android custom app information directory and generate
-a directory suitable for gradle to build a custom app.""")
-    parser.add_argument('custom_app',
-                        help="The custom app to work on")
+This script take a android branded app information directory and generate
+a directory suitable for gradle to build a branded app.""")
+    parser.add_argument('branded_app',
+                        help="The branded app to work on")
     parser.add_argument('--output-dir',
-                        help="Where to create the generated custom app information.")
+                        help="Where to create the generated branded app information.")
     return parser.parse_args()
 
 
@@ -78,7 +78,7 @@ if __name__ == "__main__":
     options.output_dir = os.path.abspath(options.output_dir)
     
     os.makedirs(options.output_dir)
-    generate_icons(pj(options.custom_app, "icon.png"), pj(options.output_dir, 'res'))
+    generate_icons(pj(options.branded_app, "icon.png"), pj(options.output_dir, 'res'))
     generate_manifest(options.output_dir)
-    shutil.copy(pj(options.custom_app, 'info.json'), pj(options.output_dir, 'info.json'))
+    shutil.copy(pj(options.branded_app, 'info.json'), pj(options.output_dir, 'info.json'))
 
