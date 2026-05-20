@@ -1,6 +1,6 @@
-# Kiwix Android Custom Apps
+# Kiwix Android Branded Apps
 
-Kiwix Android custom apps are Android apps running [Kiwix for
+Kiwix Android branded apps are Android apps running [Kiwix for
 Android](https://github.com/kiwix/kiwix-android) against a
 pre-configured ZIM file.
 
@@ -11,33 +11,33 @@ Guide](https://play.google.com/store/apps/details?id=org.kiwix.kiwixcustomwikivo
 being the most famous ones.
 
 This project contains data and scripts needed to create specific
- custom Kiwix Android apps.  _It does *not* create the app_, that's
+ branded Kiwix Android apps.  _It does *not* create the app_, that's
  done separately by running the relevant Gradle command to build one
- or more custom apps.
+ or more branded apps.
 
-[![CD](https://github.com/kiwix/kiwix-android-custom/workflows/CD/badge.svg?query=event%3Arelease)](https://github.com/kiwix/kiwix-android-custom/actions/workflows/cd.yml?query=event%3Arelease)
+[![CD](https://github.com/kiwix/kiwix-android-branded/workflows/CD/badge.svg?query=event%3Arelease)](https://github.com/kiwix/kiwix-android-branded/actions/workflows/cd.yml?query=event%3Arelease)
 [![License: GPL v3](https://img.shields.io/badge/License-GPLv3-blue.svg)](https://www.gnu.org/licenses/gpl-3.0)
 
 ## Disclaimer
 
-This document is for publishers who aim to publish new custom apps. If
+This document is for publishers who aim to publish new branded apps. If
 you are a developer and want to have an in-depth understanding about
-the custom apps, please read [CONTRIBUTING.md](CONTRIBUTING.md).
+the branded apps, please read [CONTRIBUTING.md](CONTRIBUTING.md).
 
-## Custom app folder
+## Branded app folder
 
-[In the repository](https://github.com/kiwix/kiwix-android-custom),
-each custom configuration is isolated in a so called custom app
-folder. If you need to create a new one for a new custom app, you can
+[In the repository](https://github.com/kiwix/kiwix-android-branded),
+each branded configuration is isolated in a so called branded app
+folder. If you need to create a new one for a new branded app, you can
 do that easily using Github UI. Go to
-https://github.com/kiwix/kiwix-android-custom/new/main, put the name
+https://github.com/kiwix/kiwix-android-branded/new/main, put the name
 of your app (no space, lowercase only) and add a slash at the end.
 
 ## Description json file
 
-The configuration of the custom app is handled using the `info.json`
-file which is in the custom app folder. Take example on an already
-existing one if you need to create a new custom app. The most
+The configuration of the branded app is handled using the `info.json`
+file which is in the branded app folder. Take example on an already
+existing one if you need to create a new branded app. The most
 important fields are:
 - `app_name`, the title of the app
 - `zim_url`, the ZIM online URL (to download to create the app)
@@ -65,7 +65,7 @@ important fields are:
    - If this field contains a valid commit SHA, that specific version of the `kiwix-android` code base will be used for the build.
 
 You can also create this new file using Github IO. Go to
-https://github.com/kiwix/kiwix-android-custom/new/main and type
+https://github.com/kiwix/kiwix-android-branded/new/main and type
 `info.json`.
 
 Remark: If you make a simple update, just replace the `zim_url` with
@@ -77,33 +77,33 @@ your commit (e.g. "updated to YYYY-MM zim") and commit directly to
 
 ## ZIM delivery modes (Asset Delivery vs OBB)
 
-Custom apps currently use **two different mechanisms** to deliver ZIM files,
+Branded apps currently use **two different mechanisms** to deliver ZIM files,
 depending on the size of the content and Google Play constraints.
 
 ### Asset Delivery mode
 
-By default, custom apps use **Play Asset Delivery** to package and deliver
+By default, branded apps use **Play Asset Delivery** to package and deliver
 the ZIM file together with the application. In this mode, the ZIM file is bundled as an application
-asset and is installed directly with the app. This approach is preferred for most custom apps.
+asset and is installed directly with the app. This approach is preferred for most branded apps.
 However, **Play Asset Delivery has a size limitation (approximately 1.5 GB)**,
 which makes it unsuitable for very large ZIM files.
 
 ### OBB file delivery
 
-For custom apps whose ZIM files exceed the size limits of Asset Delivery,
+For branded apps whose ZIM files exceed the size limits of Asset Delivery,
 the ZIM content is packaged and delivered using an **OBB (Opaque Binary Blob) file**. 
 In this mode, the OBB file is uploaded to the Play Store alongside the APK
 and is automatically placed by the Play Store under the app’s
 `Android/obb/<package-name>` directory during installation.
 
-Currently, the following custom apps use the OBB-based delivery approach:
+Currently, the following branded apps use the OBB-based delivery approach:
 - **Medical Wikipedia**
 - **WikiSpecies**
 
 ## Icon master
 
 The Icon master is file `icon.png` you find (or have to create) in the
-custom app folder. It is a square PNG file which is used as master to
+branded app folder. It is a square PNG file which is used as master to
 create the Icon set (see section below). This master has to match many
 constraints and you might even have to create an `icon_foreground.png`
 and `icon_background.png` to achieve to do certain things. Look at the
@@ -113,7 +113,7 @@ to know more.
 
 ## Icon set
 
-The Android custom app needs an _Icon set_ to build properly. This
+The Android branded app needs an _Icon set_ to build properly. This
 Icon set is needed to properly show the app icon on user devices and
 is a list of bitmap pictures which are derivatives of an icon master.
 
@@ -142,7 +142,7 @@ appropriate with the slider
 1. Next > Finish will generate a res folder with all the icons needed in
 the location where you previously deleted the res folder.
 1. Cut and paste the res folder to
-`kiwix-android-custom/whatever-directory-this-icon-set-is-for`
+`kiwix-android-branded/whatever-directory-this-icon-set-is-for`
 
 These instructions are for a first time setup, you can reuse this
 project in the future for icon generation so many steps can be
@@ -150,7 +150,7 @@ omitted.
 
 ## Version name
 
-The custom app will have a version name displayed on the Google Play
+The branded app will have a version name displayed on the Google Play
 store. This version name has to be a date in the format YYYY-MM (for
 example `2018-10`. This version name should be the date of the content
 (neither the date of the Software nor the release date).
@@ -167,20 +167,20 @@ from the ZIM file name. If the file - specified in `zim_url` - is
 
 ## Releasing
 
-Simply tag the repo in git with the name of a custom app, for example:
+Simply tag the repo in git with the name of a branded app, for example:
 ```bash
 git tag -f tunisie
 git push -f origin tunisie
 ```
 
 then Go to the [release
- tab](https://github.com/kiwix/kiwix-android-custom/releases) and
- click on "Draft a new release". As "tag version" use the custom app
+ tab](https://github.com/kiwix/kiwix-android-branded/releases) and
+ click on "Draft a new release". As "tag version" use the branded app
  folder name (e.g. `wikimedar`). Publish by adding for example "WikiMed FA
  2021-06" as title, no description is needed.
 
 This triggers a [Github
- action](https://github.com/kiwix/kiwix-android-custom/actions) that
+ action](https://github.com/kiwix/kiwix-android-branded/actions) that
  will build an app Bundle using kiwix-android main branch and the
  illustrations/icons set/json defined in this repository.
 

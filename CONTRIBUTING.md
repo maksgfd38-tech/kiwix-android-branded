@@ -1,5 +1,5 @@
 This files gives guidelines for developers wanting to further develop
-Kiwix custom apps.
+Kiwix branded apps.
 
 ## Prerequisites
 
@@ -24,7 +24,7 @@ On macOS, [Homebrew](https://brew.sh) allows to install the packages
 
 ## Badges
 
-Custom apps use to have icon with two small badges to help user
+Branded apps use to have icon with two small badges to help user
 understanding what the app is about:
 * One reprsenting the language of the content
 * One representing the stricked WiFi logo to emphasis its offline nature
@@ -32,11 +32,11 @@ understanding what the app is about:
 The script `gen-std-icon.py` allows to add these two badges easily on
 a master icon. You can use it that way:
 ```bash
-python3 gen-std-icon.py [custom_app_directory]/icon_master.png [optional language code]
+python3 gen-std-icon.py [branded_app_directory]/icon_master.png [optional language code]
 ```
 
-The `custom_app_directory` needs to be one of the listed sub-folders
-e.g. `phet`. If this is a new custom app, you will have to create it.
+The `branded_app_directory` needs to be one of the listed sub-folders
+e.g. `phet`. If this is a new branded app, you will have to create it.
 
 The `optional language code` parameter for english would be `en`, if
  you omit this parameter then no language badge is added, this is
@@ -50,20 +50,20 @@ First of all the Kiwix Android needs to be cloned locally:
 git clone https://github.com/kiwix/kiwix-android.git
 ```
 
-Copy then a custom app directory to `kiwix-android/custom/src`.  If
+Copy then a branded app directory to `kiwix-android/branded/src`.  If
 using Android Studio this will add the build variant and you can
 install as you would any app.
 
-Alternatively - if you are more export - you can run `./gradlew
- install[CustomAppNameWithFirstLetterCapitalised]Debug` eg `./gradlew
+Alternatively - if you are more expert - you can run `./gradlew
+ install[BrandedAppNameWithFirstLetterCapitalised]Debug` eg `./gradlew
  installPhetDebug` from the kiwix-android folder
 
 ## Testing locally
 
-The custom app, as built and installed by the Gradle script currently
+The branded app, as built and installed by the Gradle script currently
  _does not include the ZIM file_ but it does prompt you to download
  the file if it doesn't find an `.obb` (this is the extension for ZIM
- files in custom app).  So unless you need to test obb file reading
+ files in branded app).  So unless you need to test obb file reading
  you can stop here.
 
 To test reading an `.obb` file you need the file to be on the device.
@@ -72,13 +72,13 @@ To test reading an `.obb` file you need the file to be on the device.
 
 Download first the ZIM file to your computer e.g. for PhET download
 the ZIM file specified in
-https://github.com/kiwix/kiwix-android-custom/blob/master/phet/info.json
+https://github.com/kiwix/kiwix-android-branded/blob/master/phet/info.json
 by the json key `zim_url`.
 
 The Android obb dedicated directory is not always at the exact same
 place on the Android device, usually it can be found at
 `/sdcard/Android/obb/`. One time you will have found it, you will have
-to create a directory for your custom app based on its Android id, for
+to create a directory for your branded app based on its Android id, for
 example `org.kiwix.kiwixcustomphet` (`org.kiwix.kiwixcustom` + name of
 the app directory).
 
@@ -98,7 +98,7 @@ mv /sdcard/phet_mul_2019-06.zim main.4.org.kiwix.kiwixcustomphet.obb
 ## Releasing App Updates Without Updating ZIM Content
 
 1. You add a tag to the repo through git with the name of one of the
- custom app folders.
+ branded app folders.
 1. This triggers a github action and uploads an `apk` and `obb` file to the 
 play console to `alpha` in `draft`.
 1. Go to the listing in `draft` on the play console
