@@ -1,7 +1,7 @@
 {
   "app_name": "Wikivoyage auf Deutsch",
   "zim_recipe": "https://farm.openzim.org/recipes/wikivoyage_de_app",
-  "zim_url": "https://mirror.download.kiwix.org/zim/.hidden/custom_apps/wikivoyage_de-app_maxi_2025-12.zim",
+  "zim_url": "https://staging.download.kiwix.org/zim/branded_apps/wikivoyage_de-app_maxi_2026-03.zim",
   "enforced_lang": "de",
   "support_url": "https://donate.kiwix.org",
   "upload_bundle": true,

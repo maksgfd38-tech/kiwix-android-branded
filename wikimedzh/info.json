@@ -1,7 +1,7 @@
 {
   "app_name": "醫學維基百科(離線版)",
   "zim_recipe": "https://farm.openzim.org/recipes/wikipedia_zh_medicine_app",
-  "zim_url": "https://mirror.download.kiwix.org/zim/.hidden/custom_apps/wikipedia_zh_medicine-app_maxi_2025-07.zim",
+  "zim_url": "https://staging.download.kiwix.org/zim/branded_apps/wikipedia_zh_medicine-app_maxi_2026-05.zim",
   "enforced_lang": "zh",
   "support_url": "https://donate.kiwix.org",
   "upload_bundle": true,

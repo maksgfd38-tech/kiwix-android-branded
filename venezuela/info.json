@@ -1,7 +1,7 @@
 {
   "app_name": "Enciclopedia de Venezuela",
   "zim_recipe": "https://farm.openzim.org/recipes/wikipedia_es_venezuela_app",
-  "zim_url": "https://mirror.download.kiwix.org/zim/.hidden/custom_apps/wikipedia_es_venezuela-app_maxi_2025-10.zim",
+  "zim_url": "https://staging.download.kiwix.org/zim/branded_apps/wikipedia_es_venezuela-app_maxi_2026-04.zim",
   "enforced_lang": "es",
   "support_url": "https://donate.kiwix.org",
   "upload_bundle": true,
